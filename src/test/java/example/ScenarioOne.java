@@ -18,6 +18,8 @@ public class ScenarioOne {
 
         basePage = new BasePage();
         basePage.getDriver().manage().window().maximize();
+        basePage.wait.until(ExpectedConditions.
+                visibilityOf(basePage.searchBar.searchBarButton));
         basePage.searchBar.searchBarButton.click();
         Thread.sleep(1000);
     }
