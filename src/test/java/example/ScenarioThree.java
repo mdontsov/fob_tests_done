@@ -5,8 +5,12 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import fob.pages.testpagethree.BasePage;
 import org.junit.Assert;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.Iterator;
 
 public class ScenarioThree {
     private BasePage basePage;
@@ -34,6 +38,16 @@ public class ScenarioThree {
         basePage.gsmArenaSearchPage.brandsList.get(1).click();
         Thread.sleep(2000);
 
+//        Iterator<WebElement> iterator = basePage.gsmArenaSearchPage.brandsList.iterator();
+//        while (iterator.hasNext()) {
+//            WebElement web = iterator.next();
+//            if (web.getText().equalsIgnoreCase("alcatel")) {
+//                web.click();
+//            } else {
+//                throw new ElementNotVisibleException("Could not find element in list");
+//            }
+//        }
+
         //Click outside
         basePage.gsmArenaSearchPage.someSpaceUp.click();
         Thread.sleep(2000);
@@ -51,7 +65,7 @@ public class ScenarioThree {
         Thread.sleep(2000);
 
         //Scroll down on page
-        ((JavascriptExecutor)basePage.getDriver()).
+        ((JavascriptExecutor) basePage.getDriver()).
                 executeScript("arguments[0].scrollIntoView(true);",
                         basePage.gsmArenaSearchPage.someSpaceDown);
 
@@ -84,7 +98,7 @@ public class ScenarioThree {
         Thread.sleep(2000);
 
         //Scroll to page bottom
-        ((JavascriptExecutor)basePage.getDriver()).
+        ((JavascriptExecutor) basePage.getDriver()).
                 executeScript("arguments[0].scrollIntoView(true);",
                         basePage.gsmArenaSearchPage.bottomPlace);
 
